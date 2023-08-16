@@ -11,7 +11,7 @@ gem 'uglifier', '>= 1.3.0'  # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.2'  # Use CoffeeScript for .coffee assets and views
 gem 'turbolinks', '~> 5'  # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jbuilder', '~> 2.5'# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jquery-rails', '4.1.1' #jquery rails 
+gem 'jquery-rails', '4.4.0' #jquery rails 
 gem 'devise' #gem to authenticate users
 
 group :development, :test do
