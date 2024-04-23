@@ -7,7 +7,11 @@ ruby "3.0.1"
 gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
-
+gem 'redis' # In Memory data structure store used for caching
+gem 'redis-rack-cache' # Redis backed store for Rack::Cache HTTP Cache
+gem 'redis-rails', '~> 5.0', '>= 5.0.2'
+gem 'sidekiq', '~> 7.1', '>= 7.1.2' # Background processing for Rails
+gem 'httparty' # Makes http fun again!
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -32,13 +36,34 @@ gem "bootsnap", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-end
-
 group :development do
+  gem 'annotate'
+  gem 'ruby-progressbar'
+  gem 'rainbow'
+  gem 'awesome_print'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :test do
+  gem 'accept_values_for'                            # -> Rspec matchers to test ActiveModel validation that follows BDD
+  gem 'simplecov'                                    # -> Simplecov is a Ruby library for tracking code coverage.
+  gem 'factory_bot_rails'                            # -> Fixtures replacement with a straightforward definition syntax
+  gem 'faker'                                        # -> Library for generating fake data such as names, addresses, and phone numbers.
+  gem 'mocha'
+  gem 'rspec-rails'                                  # -> RSpec testing framework replaces rails default UnitTest
+  gem 'shoulda-matchers'                             # -> Shoulda Matchers provides RSpec compatible one-liners that test common Rails functionality
+  gem 'vcr'                                          # -> VCR is a library for testing HTTP interactions.
+  gem 'webmock'                                      # -> WebMock is a library for mocking HTTP requests and responses in Ruby.
+end
+
+group :development, :test do
+  gem 'byebug'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', require: false
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
 end
 
