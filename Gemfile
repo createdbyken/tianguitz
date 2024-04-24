@@ -62,8 +62,8 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rake', require: false
-  gem 'rubocop-rspec', require: false
+  # gem 'rubocop-performance', require: false
+  # gem 'rubocop-rails', require: false
+  # gem 'rubocop-rake', require: false
+  # gem 'rubocop-rspec', require: false
 end
