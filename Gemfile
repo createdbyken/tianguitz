@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.1'
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem 'devise', '~> 4.2' # Use Devise for authentication
 gem 'httparty' # Makes http fun again!
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
@@ -62,8 +62,8 @@ end
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rake', require: false
-  gem 'rubocop-rspec', require: false
+  # gem 'rubocop-performance', require: false
+  # gem 'rubocop-rails', require: false
+  # gem 'rubocop-rake', require: false
+  # gem 'rubocop-rspec', require: false
 end
