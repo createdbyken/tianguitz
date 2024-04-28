@@ -7,36 +7,25 @@ ruby '3.0.1'
 
 gem 'devise', '~> 4.2' # Use Devise for authentication
 gem 'httparty' # Makes http fun again!
-gem 'pg', '~> 1.1'
-gem 'puma', '~> 5.0'
-gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
+gem 'pg', '~> 1.1' # Use PostgreSQL as the database for Active Record
+gem 'puma', '~> 5.0' # Use Puma as the app server
+gem 'rails', '~> 7.0.7', '>= 7.0.7.2' # Ruby on Rails Framework
 gem 'redis' # In Memory data structure store used for caching
 gem 'redis-rack-cache' # Redis backed store for Rack::Cache HTTP Cache
-gem 'redis-rails', '~> 5.0', '>= 5.0.2'
+gem 'redis-rails', '~> 5.0', '>= 5.0.2' # Redis for Ruby on Rails
 gem 'sidekiq', '~> 7.1', '>= 7.1.2' # Background processing for Rails
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+gem "jbuilder" # Create JSON structures via a Builder-style DSL
+gem 'bootsnap', require: false # Boot large Ruby/Rails apps faster
+gem "rack-cors" # Middleware that will make Rails respond to CORS requests
+gem "devise-jwt" # Devise extension to handle JWT
 
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
-
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# gem "bcrypt", "~> 3.1.7
 # gem "image_processing", "~> 1.2"
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
 
 group :development do
   gem 'annotate'
@@ -67,3 +56,5 @@ group :development, :test do
   # gem 'rubocop-rake', require: false
   # gem 'rubocop-rspec', require: false
 end
+
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
