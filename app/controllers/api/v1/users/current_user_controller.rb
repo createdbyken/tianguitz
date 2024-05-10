@@ -1,4 +1,7 @@
-class Users::CurrentUserController < ApplicationController
+# Frozen_string_literal: true
+
+class Api::V1::Users::CurrentUserController < ApplicationController
+  
   def index
     render json: {
       user: current_user.as_json(except: :jti)
