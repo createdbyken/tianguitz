@@ -37,4 +37,6 @@ class User < ApplicationRecord
 
   validates :complete_name, :birth_date, :phone, presence: true
   validates :email, :username, uniqueness: true
+
+  has_many :food_stands
 end
