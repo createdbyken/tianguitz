@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     registrations: "users/registrations"
   }
-
-  get "users/current", to: "users/current_user#index"
+  namespace :api do
+    namespace :v1 do
+      get 'users/current_user', to: 'users/current_user#index'
+    end
+  end
 end
