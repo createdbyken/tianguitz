@@ -39,4 +39,5 @@ class User < ApplicationRecord
   validates :email, :username, uniqueness: true
 
   has_many :food_stands, dependent: :destroy, inverse_of: :user
+  has_one_attached :profile_picture
 end
