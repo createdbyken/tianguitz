@@ -18,13 +18,12 @@ gem "jbuilder" # Create JSON structures via a Builder-style DSL
 gem 'bootsnap', require: false # Boot large Ruby/Rails apps faster
 gem "rack-cors" # Middleware that will make Rails respond to CORS requests
 gem "devise-jwt" # Devise extension to handle JWT
-
+gem "image_processing", "~> 1.2" # High-level image processing library for Ruby
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7
-# gem "image_processing", "~> 1.2"
 
 
 group :development do
