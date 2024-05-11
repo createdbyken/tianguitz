@@ -26,7 +26,10 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class FoodStand < ApplicationRecord
+  include ImageAttachable
   enum category: { food: 0, drink: 1, dessert: 2, snack: 3, healthy: 4}
+
+  has_many :products
 
   belongs_to :user
   belongs_to :category
