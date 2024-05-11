@@ -3,11 +3,11 @@
 # Table name: food_stands
 #
 #  id          :bigint           not null, primary key
-#  address     :string           default(""), not null
-#  hours_close :string           default("")
-#  hours_open  :string           default("")
-#  latitude    :float            not null
-#  longitude   :float            not null
+#  address     :string           default("")
+#  hours_close :string           default(""), not null
+#  hours_open  :string           default(""), not null
+#  latitude    :float
+#  longitude   :float
 #  name        :string           default(""), not null
 #  qr_code     :string           default("")
 #  created_at  :datetime         not null
