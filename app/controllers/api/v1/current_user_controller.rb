@@ -1,6 +1,6 @@
 # Frozen_string_literal: true
 
-class Api::V1::Users::CurrentUserController < ApplicationController
+class Api::V1::CurrentUserController < ApplicationController
   
   def index
     render json: {
