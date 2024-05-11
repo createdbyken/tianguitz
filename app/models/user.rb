@@ -38,5 +38,5 @@ class User < ApplicationRecord
   validates :complete_name, :birth_date, :phone, presence: true
   validates :email, :username, uniqueness: true
 
-  has_many :food_stands
+  has_many :food_stands, dependent: :destroy, inverse_of: :user
 end
