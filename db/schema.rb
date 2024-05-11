@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_10_161417) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_11_045831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "food_stands", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "hours_open", default: ""
-    t.string "hours_close", default: ""
+    t.string "address", default: ""
+    t.string "hours_open", default: "", null: false
+    t.string "hours_close", default: "", null: false
     t.string "qr_code", default: ""
-    t.float "latitude", null: false
-    t.float "longitude", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.bigint "user_id"
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
