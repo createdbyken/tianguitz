@@ -6,7 +6,6 @@ require 'byebug'
 RSpec.describe Api::V1::ProductsController, type: :controller do
 
   describe "POST #create" do
-    let(:user) { create(:user) }
     let(:food_stand) { create(:food_stand) }
     let(:product) { create(:product) }
 
@@ -24,7 +23,7 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
 
       it "renders a JSON response with the new product" do
         sign_in user
-        
+
         post :create, params: { product: {
           name: product.name,
           price: product.price,
