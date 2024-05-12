@@ -22,3 +22,11 @@ food_stand = FoodStand.create( name: Faker::Restaurant.name,
                                user_id: user.id,
                                category_id: Category.first.id )
 food_stand.save!
+
+product = Product.create( name: Faker::Food.dish,
+                          description: Faker::Food.description[0..49],
+                          price: Faker::Number.decimal(l_digits: 2),
+                          available: true,
+                          food_stand_id: FoodStand.first.id 
+                          )
+product.save!

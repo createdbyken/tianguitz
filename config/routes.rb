@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       
       resources :food_stands, only: %i[ create ]
+      resources :products, only: %i[ create ]
 
       get 'current_user', to: 'current_user#index'
     end
