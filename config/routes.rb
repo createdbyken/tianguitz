@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   }
   namespace :api do
     namespace :v1 do
-      
-      resources :food_stands, only: %i[ create ]
-      resources :products, only: %i[ create ]
+      resources :food_stands
+      resources :products
 
       get 'current_user', to: 'current_user#index'
     end
