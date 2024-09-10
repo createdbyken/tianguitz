@@ -8,6 +8,6 @@ module Types
     argument :description, String, required: true
     argument :price, Float, required: true
     argument :category_id, ID, required: true
-    argument :image, ApolloUploadServer::Upload, required: false
+    #argument :image, ApolloUploadServer::Upload, required: false
   end
 end
