@@ -7,10 +7,10 @@ module Types
     argument :email, String, required: true
     argument :password, String, required: true
     argument :password_confirmation, String, required: true
-    argument :first_name, String, required: true
-    argument :last_name, String, required: true
-    argument :phone_number, String, required: true
-    argument :role, String, required: false
-    argument :avatar, ApolloUploadServer::Upload, required: false
+    argument :complete_name, String, required: true
+    argument :phone, String, required: true
+    argument :username, String, required: true
+    argument :birth_date, String, required: true
+    #argument :avatar, ApolloUploadServer::Upload, required: false
   end
 end
