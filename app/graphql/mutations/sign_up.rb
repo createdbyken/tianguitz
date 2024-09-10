@@ -2,14 +2,14 @@
 
 module Mutations
   class SignUp < BaseMutation
-    argument :input, Types::UserInputType, required: true
+    argument :user, Types::UserInputType, required: true
 
     field :token, String, null: true
     field :user, Types::UserType, null: false
     field :errors, [String], null: false
     
-    def resolve(args)
-      user = User.new(args)
+    def resolve(user:)
+      user = User.new(user.to_h)
       if user.save
         token = Warden::JWTAuth::UserEncoder.new.call(user, :user, nil).first
           { user: user, token: token, errors: [] }
