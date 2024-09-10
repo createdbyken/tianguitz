@@ -16,8 +16,9 @@ gem 'redis-rails', '~> 5.0', '>= 5.0.2' # Redis for Ruby on Rails
 gem 'sidekiq', '~> 7.1', '>= 7.1.2' # Background processing for Rails
 gem "jbuilder" # Create JSON structures via a Builder-style DSL
 gem 'bootsnap', require: false # Boot large Ruby/Rails apps faster
-gem "rack-cors" # Middleware that will make Rails respond to CORS requests
-gem "devise-jwt" # Devise extension to handle JWT
+gem 'rack-cors' # Middleware that will make Rails respond to CORS requests
+gem 'devise-jwt' # Devise extension to handle JWT
+gem 'graphql', '~> 2.3', '>= 2.3.14'  #graphql-ruby is a Ruby implementation of GraphQL
 gem "image_processing", "~> 1.2" # High-level image processing library for Ruby
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -31,6 +32,7 @@ group :development do
   gem 'awesome_print'
   gem 'rainbow'
   gem 'ruby-progressbar'
+  gem 'graphql_playground-rails'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
