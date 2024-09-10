@@ -7,7 +7,8 @@ module Types
     argument :name, String, required: true
     argument :description, String, required: true
     argument :price, Float, required: true
-    argument :category_id, ID, required: true
+    argument :available, Boolean, required: true
+    argument :food_stand_id, ID, required: true
     #argument :image, ApolloUploadServer::Upload, required: false
   end
 end
