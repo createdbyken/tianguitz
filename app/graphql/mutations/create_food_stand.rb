@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
 module Mutations
-  class CreateFoodStands < BaseMutation
-    argument :name, String, required: true
-    argument :address, String, required: false
-    argument :hours_open, String, required: true
-    argument :hours_close, String, required: true
-
+  class CreateFoodStand < BaseMutation
+    argument :food_stand, Types::FoodStandInputType, required: true
+    
     field :food_stand, Types::FoodStandType, null: true
     field :errors, [String], null: false
     
-    def resolve(args)
-      food_stand = FoodStand.new(args)
+    def resolve(food_stand:)
+
+      current_user = context[:current_user]
+      food_stand = FoodStand.new(food_stand.to_h)
+      food_stand.user_id = current_user.id
+
       if food_stand.save
         { food_stand: food_stand, errors: [] }
       else
