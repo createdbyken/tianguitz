@@ -11,8 +11,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
+      current_user: current_user
     }
     result = TianguitzApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
@@ -53,15 +52,16 @@ class GraphqlController < ApplicationController
   def authenticate_user!
     token = request.headers['Authorization']&.split('Bearer ')&.last
     return unless token
-
+  
     begin
-      payload = Warden::JWTAuth::UserDecoder.new.call(token, :user, nil)
-      @current_user = User.find_by(id: payload['sub'])
-    rescue JWT::DecodeError
+
+      @current_user = Warden::JWTAuth::UserDecoder.new.call(token, :user, nil)
+    rescue JWT::DecodeError => e
+      Rails.logger.debug "JWT Decode Error: #{e.message}"
       @current_user = nil
     end
   end
-
+  
   def current_user
     @current_user
   end
