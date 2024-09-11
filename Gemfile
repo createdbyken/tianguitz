@@ -20,6 +20,7 @@ gem 'rack-cors' # Middleware that will make Rails respond to CORS requests
 gem 'devise-jwt' # Devise extension to handle JWT
 gem 'graphql', '~> 2.3', '>= 2.3.14'  #graphql-ruby is a Ruby implementation of GraphQL
 gem "image_processing", "~> 1.2" # High-level image processing library for Ruby
+gem 'rqrcode' # A Ruby library that encodes QR Codes
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
