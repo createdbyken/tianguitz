@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_11_053530) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_11_011453) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_053530) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "food_stand_subscriptions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "food_stand_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_stand_id"], name: "index_food_stand_subscriptions_on_food_stand_id"
+    t.index ["user_id"], name: "index_food_stand_subscriptions_on_user_id"
+  end
+
   create_table "food_stands", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "address", default: ""
@@ -60,6 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_053530) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_open", default: false
     t.index ["category_id"], name: "index_food_stands_on_category_id"
     t.index ["user_id"], name: "index_food_stands_on_user_id"
   end
@@ -99,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_11_053530) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "food_stand_subscriptions", "food_stands"
+  add_foreign_key "food_stand_subscriptions", "users"
   add_foreign_key "food_stands", "categories"
   add_foreign_key "food_stands", "users"
   add_foreign_key "products", "food_stands"
