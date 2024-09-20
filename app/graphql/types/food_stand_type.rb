@@ -8,6 +8,7 @@ module Types
     field :hours_open, String, null: false
     field :hours_close, String, null: false
     field :qr_code, String, null: true
+    field :is_open, Boolean, null: false
     field :latitude, Float, null: true
     field :longitude, Float, null: true
     

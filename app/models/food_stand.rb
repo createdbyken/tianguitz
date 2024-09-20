@@ -6,6 +6,7 @@
 #  address     :string           default("")
 #  hours_close :string           default(""), not null
 #  hours_open  :string           default(""), not null
+#  is_open     :boolean          default(FALSE)
 #  latitude    :float
 #  longitude   :float
 #  name        :string           default(""), not null
@@ -27,10 +28,21 @@
 #
 class FoodStand < ApplicationRecord
   include ImageAttachable
+  before_create :generate_qr_code
+
   enum category: { food: 0, drink: 1, dessert: 2, snack: 3, healthy: 4}
 
   has_many :products
 
   belongs_to :user
   belongs_to :category
+
+  validates :is_open, inclusion: { in: [true, false] }
+
+  def generate_qr_code
+    qr_content = "food_stand_id=#{self.id}"
+
+    qr_code = RQRCode::QRCode.new(qr_content)
+    self.qr_code = Base64.encode64(qr_code.as_png(size: 300).to_s)
+  end
 end

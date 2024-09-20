@@ -6,6 +6,7 @@
 #  address     :string           default("")
 #  hours_close :string           default(""), not null
 #  hours_open  :string           default(""), not null
+#  is_open     :boolean          default(FALSE)
 #  latitude    :float
 #  longitude   :float
 #  name        :string           default(""), not null
