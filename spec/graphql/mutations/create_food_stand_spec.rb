@@ -53,12 +53,14 @@ describe 'CreateFoodStand', type: :request do
     expect(data['errors']).to be_empty
   end
 
-  # it 'returns an error if the food stand is invalid' do
-  #   post '/graphql', params: { query: query.gsub('Food Stand Name', '') }
-  #   json = JSON.parse(response.body)
-  #   data = json['data']['createFoodStand']
+  it 'returns an error if the food stand is invalid' do
+    invalid_mutation = mutation_string.gsub('"Food Stand Name"', '""')
+    post '/graphql', params: { query: invalid_mutation }, headers: headers
+    json = JSON.parse(response.body)
 
-  #   expect(data['foodStand']).to be_nil
-  #   expect(data['errors']).to eq(["Name can't be blank"])
-  # end
+    data = json['data']['createFoodStands']
+
+    expect(data['foodStand']).to be_nil
+    expect(data['errors']).to eq(["Name can't be blank"])
+  end
 end
