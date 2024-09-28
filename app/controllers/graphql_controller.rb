@@ -52,10 +52,11 @@ class GraphqlController < ApplicationController
   def authenticate_user!
     token = request.headers['Authorization']&.split('Bearer ')&.last
     return unless token
-  
-    begin
 
-      @current_user = Warden::JWTAuth::UserDecoder.new.call(token, :user, nil)
+    begin
+      payload = JWT.decode(token, Rails.application.secrets.secret_key_base).first
+      user_id = payload['sub']
+      @current_user = User.find(user_id)
     rescue JWT::DecodeError => e
       Rails.logger.debug "JWT Decode Error: #{e.message}"
       @current_user = nil
