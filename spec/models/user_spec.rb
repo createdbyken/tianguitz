@@ -28,12 +28,14 @@
 #  index_users_on_jti                   (jti) UNIQUE
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
-require 'test_helper'
+require 'rails_helper'
 require 'faker'
 
-RSpec.describe User, type: :model do
+describe User, type: :model do
 
   describe User do
+    let!(:user) { create(:user) }
+
     it { is_expected.to have_many(:food_stands) }
 
     it 'is valid with valid attributes' do
