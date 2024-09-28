@@ -5,7 +5,7 @@ module Mutations
     argument :user, Types::UserInputType, required: true
 
     field :token, String, null: true
-    field :user, Types::UserType, null: false
+    field :user, Types::UserType, null: true
     field :errors, [String], null: false
     
     def resolve(user:)
