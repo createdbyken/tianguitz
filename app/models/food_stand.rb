@@ -36,8 +36,8 @@ class FoodStand < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
-
   validates :is_open, inclusion: { in: [true, false] }
+  validates :name, :hours_open, :hours_close, :latitude, :longitude, presence: true
 
   def generate_qr_code
     qr_content = "food_stand_id=#{self.id}"
