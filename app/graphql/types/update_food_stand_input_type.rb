@@ -13,6 +13,6 @@ module Types
     argument :latitude, Float, required: false
     argument :longitude, Float, required: false
 
-    argument :category_id, ID, required
+    argument :category_id, ID, required: false
   end
 end
