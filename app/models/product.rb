@@ -25,4 +25,5 @@ class Product < ApplicationRecord
 
   validates :name, :price, presence: true
   validates :description, presence: true, length: { maximum: 50 }
+  validates :price, numericality: { greater_than: 0 }
 end

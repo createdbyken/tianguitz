@@ -3,6 +3,7 @@ SimpleCov.refuse_coverage_drop
 
 SimpleCov.start 'rails' do
   add_filter '/app/channels/'
+  add_filter '/graphql/types/'
   add_filter '/app/jobs/'
   add_filter '/app/mailers/'
   add_filter '/app/helpers/'

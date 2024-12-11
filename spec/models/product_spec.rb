@@ -22,6 +22,8 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+
+  let!(:product) { create(:product) }
   describe 'associations' do
     it { should belong_to(:food_stand) }
   end
